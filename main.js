@@ -52,3 +52,76 @@ class Mago extends Personaje {
         this.#mana = mana;
     }
 }
+function obtenerProducto() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({ id: 10, nombre: "Teclado" });
+    }, 1000);
+  });
+}
+
+function obtenerPrecio(productoId) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(50);
+    }, 1000);
+  });
+}
+
+// Uso con Promise
+obtenerProducto()
+  .then((producto) => {
+    return obtenerPrecio(producto.id).then((precio) => {
+      console.log(producto, precio);
+    });
+  });
+  
+
+function obtenerProducto() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({ id: 10, nombre: "Teclado" });
+    }, 1000);
+  });
+}
+
+function obtenerPrecio(productoId) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(50);
+    }, 1000);
+  });
+}
+
+// Uso con Promise
+obtenerProducto()
+  .then((producto) => {
+    return obtenerPrecio(producto.id).then((precio) => {
+      console.log(producto, precio);
+    });
+  });
+
+function obtenerProducto() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({ id: 10, nombre: "Teclado" });
+    }, 1000);
+  });
+}
+
+function obtenerPrecio(productoId) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(50);
+    }, 1000);
+  });
+}
+
+// Uso con Async/Await
+async function mostrarProductoYPrecio() {
+  const producto = await obtenerProducto();
+  const precio = await obtenerPrecio(producto.id);
+  console.log(producto, precio);
+}
+
+mostrarProductoYPrecio();
